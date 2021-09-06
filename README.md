@@ -16,7 +16,7 @@ TRANSIT-HUB EMPLOYEE
 ----
 A transit-hub employee scans the qrcode of the package, and so depending on the city where the transit hub is located, the location where the package is located is updated.
 
-** this point of the application does not work because there were problems with scanning the qrcode and updating the database **
+** this part of the application does not work because there were problems with scanning the qrcode and updating the database **
 
 STORE EMPLOYEE
 ----
