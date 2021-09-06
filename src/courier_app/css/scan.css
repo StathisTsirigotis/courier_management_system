@@ -1,0 +1,46 @@
+p.result {
+    font-size: 20px;
+    color: #a263ad;
+    text-shadow: 1px 1px 0px #000;
+    padding-left: 10px;
+}
+p.instances{
+	font-size: 20px;
+    color: #a263ad;
+    text-shadow: 1px 1px 0px #000;
+    padding-left: 10px;
+	margin: 20px 0;
+}
+input[type='button'] {
+    border: none;
+    padding: 10px 30px;
+    background: #a263ad;
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 9999;
+    transition: all .3s ease-in-out;
+}
+video#myvideo {
+    border: 1px solid #9e8c8c;
+    background: #b9aeae;
+    box-shadow: 4px 6px 11px #000;
+    margin-right: 50px;
+}
+.header {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 24px;
+    color: #be00c7;
+    font-weight: bold;
+    text-decoration: underline;
+}
+input[type='button']:hover {
+    background: #ffffff;
+    color: #a263ad;
+}
+body {
+    margin: 0;
+    background-color: #eee;
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+ <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="grid.js"></script>
+<script type="text/javascript" src="version.js"></script>
+<script type="text/javascript" src="detector.js"></script>
+<script type="text/javascript" src="formatinf.js"></script>
+<script type="text/javascript" src="errorlevel.js"></script>
+<script type="text/javascript" src="bitmat.js"></script>
+<script type="text/javascript" src="datablock.js"></script>
+<script type="text/javascript" src="bmparser.js"></script>
+<script type="text/javascript" src="datamask.js"></script>
+<script type="text/javascript" src="rsdecoder.js"></script>
+<script type="text/javascript" src="gf256poly.js"></script>
+<script type="text/javascript" src="gf256.js"></script>
+<script type="text/javascript" src="decoder.js"></script>
+<script type="text/javascript" src="qrcode.js"></script>
+<script type="text/javascript" src="findpat.js"></script>
+<script type="text/javascript" src="alignpat.js"></script>
+<script type="text/javascript" src="databr.js"></script>
+<script type="text/javascript" src="webqr.js"></script>
+<script type="text/javascript" src="FileSaver.min.js"></script>
+<script src="toBlob/js/canvas-to-blob.min.js"></script>
+</head>
+<script type="text/javascript">
+function read(a){
+	//alert(a);
+	document.getElementsByClassName("result")[0].textContent=a;
+}	
+	
+function load(img){
+	qrcode.callback = read;
+	qrcode.decode('demo.png');
+}
+
+function captureToCanvas() {
+		flash = document.getElementById("embedflash");
+		flash.ccCapture();
+		qrcode.decode();
+ }
+// Converts canvas to an image
+
+function convertCanvasToImage(canvas) {
+	var image = new Image();
+	image.src = canvas.toDataURL("image/png").replace(/^data:image\/(png|jpg);base64,/, "");
+	document.getElementsByClassName('canvasImg')[0].src =  'demo.png';
+	//return image.src;
+	return 'demo.png';
+}
+</script>
+  <body onload="init();">
+    <video id="myvideo" width=400 height=400 id="video" controls autoplay></video>	
+	  <p> Screenshots : </p>
+	  <p class="result">null</p>
+	  <img class="canvasImg" src='' alt="">
+      <canvas  id="myCanvas" width="400" height="350"></canvas> 
+  </body>
+  <script>
+      //--------------------
+      // GET USER MEDIA CODE
+      //--------------------
+	navigator.getUserMedia = ( navigator.getUserMedia ||
+	 navigator.webkitGetUserMedia ||
+	 navigator.mozGetUserMedia ||
+	 navigator.msGetUserMedia);
+
+      var video;
+      var webcamStream;
+
+      function startWebcam() {
+        if (navigator.getUserMedia) {
+           navigator.getUserMedia (
+
+              // constraints
+              {
+                 video: true,
+                 audio: false
+              },
+
+              // successCallback
+              function(localMediaStream) {
+                  video = document.querySelector('video');
+                 video.src = window.URL.createObjectURL(localMediaStream);
+                 webcamStream = localMediaStream;
+              },
+
+              // errorCallback
+              function(err) {
+                 console.log("The following error occured: " + err);
+              }
+           );
+        } else {
+           console.log("getUserMedia not supported");
+        }  
+      }
+      var canvas, ctx;
+
+      function init() {
+	  startWebcam();
+        // Get the canvas and obtain a context for
+        // drawing in it
+        canvas = document.getElementById("myCanvas");
+        ctx = canvas.getContext('2d');
+      }
+
+      function snapshot() {
+         // Draws current image from the video element into the canvas
+        ctx.drawImage(video, 0,0, canvas.width, canvas.height);
+      }
+	window.setInterval(function(){	
+	snapshot(video);
+	var el = document.getElementById('myCanvas');
+	var img = convertCanvasToImage(el);
+	//alert(img.src);
+	load(img);
+	}, 2000);
+  </script>
+</html>

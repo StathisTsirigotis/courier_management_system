@@ -1,0 +1,196 @@
+@font-face {
+	font-family: 'Gothic';
+		src: url('../fonts/GOTHIC.woff') format('woff'), /* Pretty Modern Browsers */
+			 url('../fonts/GOTHIC.ttf')  format('truetype');/* Safari, Android, iOS */
+}
+
+body * {
+    font-family: 'Gothic';
+}
+
+.wrapper {
+    position: relative;
+    overflow: hidden;
+    background-color: #d9e490;
+}
+
+.menu {
+    margin-top: 5px;
+    position: relative;
+    display: inline-block;
+    background-color: #455160;
+    min-height: 100%;
+    border-right: 2px solid #4ea04f;
+    box-shadow: 0px 0px 7px #211f1f;
+    vertical-align: top;
+}
+
+.menu > ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.menu > ul li {
+    position: relative;
+    color: #dee490;
+    font-size: 18px;
+    font-family: arial;
+    border-bottom: 1px solid #4ea04f;
+    padding: 15px 30px;
+    transition: all .3s ease-in-out;
+}
+.menu > ul li > a {
+	color: #dee490;
+	text-decoration: none;
+	cursor: pointer;
+}
+.menu > ul li:hover {
+    background-color:  rgb(185, 183, 183);
+    color: #000000;
+}
+	
+.menu ul >li:first-child:before {
+    position: absolute;
+    content: '\f217';
+    left: 6px;
+    top: 15px;
+    font-family: FontAwesome;
+    text-shadow: 1px 1px 1px black;
+}
+
+body {
+    margin: 0;
+}
+
+.menu > ul li:nth-child(2):before {
+    position: absolute;
+    content: '\f19c';
+    left: 6px;
+    top: 15px;
+    font-family: FontAwesome;
+    text-shadow: 1px 1px 1px black;
+}
+
+.menu > ul li:nth-child(3):before {
+    position: absolute;
+    content: '\f2b9';
+    left: 6px;
+    top: 15px;
+    font-family: FontAwesome;
+    text-shadow: 1px 1px 1px black;
+}
+
+.menu > ul li:nth-child(4):before {
+    position: absolute;
+    content: '\f011';
+    left: 6px;
+    top: 16px;
+    font-family: FontAwesome;
+    text-shadow: 1px 1px 1px black;
+}
+
+.active{
+	background-color : #bcc570!important;
+	color: black!important;
+}
+
+
+table {
+	margin-top: 5px;
+    border: 1px solid black;
+    border-collapse: collapse;
+	background-color: #bcc570;
+	box-shadow: 1px 1px 2px;
+}
+
+table tr th {
+    border: 1px solid black;
+    border-top: none;
+    border-left: none;
+    font-size: 15px;
+}
+table tr td {
+    border: 1px solid black;
+    border-top: none;
+    border-left: none;
+    font-size: 14px;
+}
+.container {
+ 
+    display: inline-block;
+}
+.edit , .del{
+	
+	display:inline-block;
+}
+.edit a{
+    background-color: #1d1da9;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 40%;
+	box-shadow: 1px 1px 1px #5a5252;
+	cursor: pointer;
+	text-decoration: none;
+}
+.del {
+    background-color: red;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 40%;
+	margin-right: 5px;
+	box-shadow: 1px 1px 1px #5a5252;
+	cursor: pointer;
+	text-decoration: none;
+}
+.add{
+	text-align: left;
+	margin-top: 15px;
+
+}
+.add span {
+    background-color: green;
+    color: white;
+    font-size: 17px;
+    padding: 5px 14px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px #5a5252;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.menu > ul > li:nth-child(3):hover > .stores {
+    display: block;
+}
+
+.stores {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: #58626f;
+    display: none;
+    font-size: 14px;
+    border: 2px solid #847878;
+    border-left: none;
+}
+
+.stores > div {
+    padding: 17px 14px;
+    border-bottom: 1px solid #040404;
+    box-shadow: 0px 1px 1px -1px rgba(255,255,255,.6);
+    font-family: sans-serif;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+}
+.stores > div:hover > a {
+    color: #ded679;
+}
+
+.stores > div:hover {
+    background: linear-gradient(to left , #4ea04f , #455160 );
+}
+
+.stores > div > a {
+    color: #e7e8dd;
+    text-decoration: none;
+}
